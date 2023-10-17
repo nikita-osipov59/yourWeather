@@ -1,1 +1,1 @@
-https://nikita-osipov59.github.io/yourWeather/
+[nikita.osipov5](https://t.me/nikita_frontendit)https://t.me/nikita_frontendit
