@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+.night {
+  color: #ffffff;
+}
+.night footer a {
+  color: #ffffff;
+}
+
 .bg-color {
   background-color: rgba(64, 96, 111, 0.3);
   padding: 10px;
@@ -19,6 +26,7 @@ body {
   background-image: url(../images/back-light.jpg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,6 +38,15 @@ body {
 
 .header {
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .container {
@@ -89,11 +106,10 @@ input[data-autocompleted] {
 }
 .form .form__btn {
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
   position: relative;
   border-radius: 0px 10px 10px 0px;
-  border: 1px solid black;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -107,12 +123,7 @@ input[data-autocompleted] {
   margin: auto;
 }
 .card .future__day {
-  padding: 10px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.card .future__day:hover {
-  background-color: #ffffff;
+  padding: 15px;
 }
 .card .card__list {
   display: -webkit-box;
@@ -132,9 +143,6 @@ input[data-autocompleted] {
 .card .card__list .information__item {
   background-color: rgba(105, 136, 159, 0.5);
 }
-.card .card__list li + li {
-  padding: 0px 0px 0px 10px;
-}
 .card .card__city {
   font-size: 65px;
   font-weight: 500;
@@ -144,9 +152,12 @@ input[data-autocompleted] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .card .card__weather .card__information {
   margin-left: 30px;
@@ -213,4 +224,7 @@ input[data-autocompleted] {
           align-items: center;
   text-align: center;
   margin-top: auto;
+}
+.footer a {
+  color: #000;
 }
