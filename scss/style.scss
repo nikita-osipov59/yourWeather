@@ -11,9 +11,11 @@ $fw-medium: 500;
 
 $color-white: #ffffff;
 $color-white-opacity: rgba(255, 255, 255, 50%);
+$color-black-opacity: rgba(0, 0, 0, 50%);
+
 $color-grey: #939393;
 $color-orange: #fe8235;
-$color-green: #7ffa8a;
+$color-green: hsl(0, 0%, 0%);
 $color-black: #000;
 $color-background: rgba(64, 96, 111, 30%);
 $color-card-bg: rgba(100, 200, 228, 40%);
@@ -22,6 +24,13 @@ $btn-background: #0b1d2b;
 // \ Variables //
 
 // Additional
+
+.night {
+  color: $color-white;
+  footer a {
+    color: $color-white;
+  }
+}
 
 .bg-color {
   background-color: $color-background;
@@ -45,12 +54,16 @@ body {
   background-image: url(../images/back-light.jpg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
 }
 
 .header {
   text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -84,11 +97,10 @@ input[data-autocompleted] {
   }
   .form__btn {
     padding: 10px;
-    background-color: $color-white-opacity;
-    color: $color-black;
+    background-color: $color-black-opacity;
+    color: $color-white;
     position: relative;
     border-radius: 0px 10px 10px 0px;
-    border: 1px solid black;
     transition: 0.3s;
     &:hover {
       background-color: red;
@@ -101,11 +113,7 @@ input[data-autocompleted] {
   padding: 40px;
   margin: auto;
   .future__day {
-    padding: 10px;
-    transition: 0.3s;
-    &:hover {
-      background-color: $color-white;
-    }
+    padding: 15px;
   }
   .card__list {
     display: flex;
@@ -118,9 +126,6 @@ input[data-autocompleted] {
     .information__item {
       background-color: $color-card-list;
     }
-    li + li {
-      padding: 0px 0px 0px 10px;
-    }
   }
   .card__city {
     font-size: 65px;
@@ -129,7 +134,8 @@ input[data-autocompleted] {
   }
   .card__weather {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     .card__information {
       margin-left: 30px;
       text-align: center;
@@ -176,6 +182,9 @@ input[data-autocompleted] {
   }
 }
 .footer {
+  a {
+    color: $color-black;
+  }
   align-items: center;
   text-align: center;
   margin-top: auto;
