@@ -72,9 +72,15 @@ async function getWeather(city) {
         return "images/snow.png";
       case "Light snow":
         return "images/snow.png";
+      case "Light snow showers":
+        return "images/snow.png";
       case "Freezing drizzle":
         return "images/light rain.png";
       case "Light freezing rain":
+        return "images/light rain.png";
+      case "Moderate rain":
+        return "images/light rain.png";
+      case "Light rain shower":
         return "images/light rain.png";
       default:
         return "images/unknown.png";
@@ -82,7 +88,7 @@ async function getWeather(city) {
   };
   document.querySelector(".card__photo").src = getImage(WeatherData.condition);
 
-  if (data.current.is_day == 0) {
+  if (data.current.is_day == 1) {
     document.querySelector("body").style.cssText =
       "background-image: url(../images/back-light.jpg)";
   } else {
