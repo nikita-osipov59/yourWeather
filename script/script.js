@@ -125,11 +125,11 @@ async function getWeather(city) {
   );
   if (data.current.is_day == 1) {
     document.querySelector("body").style.backgroundImage =
-      "url(../images/back-light.jpg)";
+      "url(images/back-light.jpg)";
     document.querySelector("body").classList.remove("night");
   } else {
     document.querySelector("body").style.backgroundImage =
-      "url(../images/back-dark.jpg)";
+      "url(images/back-dark.jpg)";
     document.querySelector("body").classList.add("night");
   }
 }
