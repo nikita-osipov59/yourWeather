@@ -1,6 +1,8 @@
 const form = document.querySelector("#form");
 const input = document.querySelector("#inputCity");
 const sup = document.querySelector("#sup");
+const asd = document.createElement("span");
+const container = document.querySelector(".container");
 
 async function getWeather(city) {
   let query = city !== null ? city : "Москва";
@@ -9,16 +11,31 @@ async function getWeather(city) {
   const response = await fetch(url);
   const data = await response.json();
 
+  if (response.status == 400) {
+    document.querySelector(".card").style.display = "block";
+    document.querySelector(".card").style.display = "none";
+    asd.innerHTML =
+      "<div class='error'>Ошибка! Введите корректный запрос!</div>";
+    container.append(asd);
+    document.querySelector(".error").style.display = "block";
+  } else {
+    document.querySelector(".card").style.display = "block";
+    asd.innerHTML =
+      "<div class='error none'>Ошибка! Введите корректный запрос!</div>";
+  }
+
   document.querySelector(".card__city").innerHTML = data.location.name;
 
   document.querySelector(".card__value").innerHTML =
     Math.round(data.current.temp_c) + '<sup id="sup">°c</sup>';
+  document.querySelector(".feels__number").innerHTML =
+    Math.round(data.current.feelslike_c) + '<sup id="sup">°</sup>';
   document.querySelector(".information__item-humidity").innerHTML =
     data.current.humidity + "%";
   document.querySelector(".information__item-wind").innerHTML =
     Math.round(data.current.wind_kph / 3.6) + " м/с";
-  document.querySelector(".information__item-precip").innerHTML =
-    data.current.precip_mm + " мм";
+  document.querySelector(".information__item-pressure").innerHTML =
+    data.current.pressure_mb + " мм";
 
   document.querySelector(".day__item-degrees").innerHTML =
     Math.round(data.current.temp_c) + "°";
@@ -40,6 +57,9 @@ async function getWeather(city) {
 
   const WeatherData = {
     condition: data.current.condition.text,
+    conditionNow: data.forecast.forecastday[0].day.condition.text,
+    conditionNext: data.forecast.forecastday[1].day.condition.text,
+    conditionAfterNext: data.forecast.forecastday[2].day.condition.text,
   };
 
   const getImage = (condition) => {
@@ -49,6 +69,8 @@ async function getWeather(city) {
       case "Cloud":
         return "images/cloud.png";
       case "Fog":
+        return "images/fog.png";
+      case "Freezing fog":
         return "images/fog.png";
       case "Partly cloudy":
         return "images/partly.png";
@@ -72,22 +94,42 @@ async function getWeather(city) {
         return "images/snow.png";
       case "Light snow":
         return "images/snow.png";
+      case "Light snow showers":
+        return "images/snow.png";
+      case "Patchy light snow":
+        return "images/snow.png";
       case "Freezing drizzle":
         return "images/light rain.png";
+      case "Light drizzle":
+        return "images/light rain.png";
       case "Light freezing rain":
+        return "images/light rain.png";
+      case "Moderate rain":
+        return "images/light rain.png";
+      case "Light rain shower":
         return "images/light rain.png";
       default:
         return "images/unknown.png";
     }
   };
-  document.querySelector(".card__photo").src = getImage(WeatherData.condition);
 
-  if (data.current.is_day == 0) {
-    document.querySelector("body").style.cssText =
-      "background-image: url(../images/back-light.jpg)";
+  document.querySelector(".card__photo").src = getImage(WeatherData.condition);
+  document.querySelector(".future__item-now").src = getImage(
+    WeatherData.conditionNow
+  );
+  document.querySelector(".future__item-next").src = getImage(
+    WeatherData.conditionNext
+  );
+  document.querySelector(".future__item-after-next").src = getImage(
+    WeatherData.conditionAfterNext
+  );
+  if (data.current.is_day == 1) {
+    document.querySelector("body").style.backgroundImage =
+      "url(../images/back-light.jpg)";
+    document.querySelector("body").classList.remove("night");
   } else {
-    document.querySelector("body").style.cssText =
-      "background-image: url(../images/back-dark.jpg)";
+    document.querySelector("body").style.backgroundImage =
+      "url(../images/back-dark.jpg)";
     document.querySelector("body").classList.add("night");
   }
 }

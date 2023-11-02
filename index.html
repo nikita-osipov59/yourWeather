@@ -22,13 +22,16 @@
           />
           <button class="form__btn">Показать</button>
         </form>
-
         <div class="card">
           <div class="card__city">Tokyo</div>
           <div class="card__weather">
             <img class="card__photo" src="images/sun.png" alt="img" />
             <div class="card__information">
               <div class="card__value">10<sup id="sup">°c</sup></div>
+              <div class="card__feels">
+                Ощущается как:
+                <div class="feels__number"></div>
+              </div>
               <ul class="card__list">
                 <li class="information__item">
                   <div class="future__day">
@@ -49,8 +52,8 @@
                 <li class="information__item">
                   <div class="future__day">
                     <div class="information__item-element">
-                      <img src="images/precipitation.svg" alt="precip" />
-                      <span class="information__item-precip">10 мм</span>
+                      <img src="images/pressure.svg" alt="pressure" />
+                      <span class="information__item-pressure">10 мм</span>
                     </div>
                   </div>
                 </li>
@@ -64,7 +67,11 @@
                   <div class="future__day">
                     <div class="now">ср</div>
                     <div class="future__item-element">
-                      <img src="images/395.png" alt="weather" />
+                      <img
+                        class="future__item-now"
+                        src="images/64x64/sun.png"
+                        alt="weather"
+                      />
                       <span class="day__item-degrees">12°</span>
                     </div>
                   </div>
@@ -73,7 +80,11 @@
                   <div class="future__day">
                     <div class="next">чт</div>
                     <div class="future__item-element">
-                      <img src="images/374.png" alt="weather" />
+                      <img
+                        class="future__item-next"
+                        src="images/64x64/partly.png"
+                        alt="weather"
+                      />
                       <span class="day-next__item-degrees">10°</span>
                     </div>
                   </div>
@@ -82,7 +93,11 @@
                   <div class="future__day">
                     <div class="after-next">пт</div>
                     <div class="future__item-element">
-                      <img src="images/395.png" alt="weather" />
+                      <img
+                        class="future__item-after-next"
+                        src="images/64x64/overcast.png"
+                        alt="weather"
+                      />
                       <span class="day-next-after__item-degrees">10°</span>
                     </div>
                   </div>
