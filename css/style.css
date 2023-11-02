@@ -15,6 +15,17 @@
   color: #ffffff;
 }
 
+.none {
+  display: none;
+}
+
+.error {
+  margin-top: 25px;
+  background-color: #ff0000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 html,
 body {
   min-height: 100vh;
@@ -34,6 +45,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .header {
@@ -53,7 +67,6 @@ body {
   max-width: 1200px;
   padding: 0 10px;
   margin: 0 auto;
-  min-height: 90vh;
   text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -81,7 +94,7 @@ input[data-autocompleted] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 55px;
+  margin-bottom: 30px;
 }
 .form .input {
   color: #000;
@@ -108,22 +121,32 @@ input[data-autocompleted] {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
-  position: relative;
   border-radius: 0px 10px 10px 0px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 .form .form__btn:hover {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 .card {
   background-color: rgba(100, 200, 228, 0.4);
   padding: 40px;
-  margin: auto;
 }
 .card .future__day {
   padding: 15px;
+}
+.card .card__feels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 .card .card__list {
   display: -webkit-box;
@@ -189,6 +212,7 @@ input[data-autocompleted] {
 }
 .card .card__weather .card__information .information__item-element img {
   margin-bottom: 10px;
+  height: 64px;
   max-height: 64px;
   max-width: 64px;
 }
@@ -211,6 +235,7 @@ input[data-autocompleted] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 5px;
 }
 .card .card__future .future__item-element img {
   margin-bottom: 5px;
@@ -223,8 +248,107 @@ input[data-autocompleted] {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  margin-top: auto;
 }
 .footer a {
   color: #000;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+  .card__photo {
+    width: 200px;
+  }
+  .information__item-element img {
+    width: 50px;
+  }
+  .future__item-element img {
+    width: 50px;
+  }
+}
+@media (max-width: 530px) {
+  .card__photo {
+    display: none;
+  }
+  .card__information {
+    margin-left: 0px !important;
+  }
+  .card__city {
+    font-size: 60px !important;
+  }
+  .card__value {
+    font-size: 90px !important;
+  }
+}
+@media (max-width: 400px) {
+  .input {
+    width: 200px !important;
+  }
+  .card {
+    padding: 20px !important;
+  }
+  .card__city {
+    font-size: 50px !important;
+  }
+  .card__value {
+    font-size: 80px !important;
+  }
+}
+@media (max-width: 330px) {
+  .input {
+    width: 175px !important;
+  }
+  .card {
+    padding: 5px !important;
+  }
+  .card__value {
+    font-size: 70px !important;
+  }
+}
+@media (max-height: 851px) {
+  .form {
+    margin-bottom: 15px !important;
+  }
+  .card__future {
+    margin-top: 0px !important;
+  }
+  .card__city {
+    font-size: 50px !important;
+    margin-bottom: 0px !important;
+  }
+  .card__value {
+    font-size: 80px !important;
+  }
+}
+@media (max-height: 750px) {
+  .form {
+    margin-bottom: 10px !important;
+    font-size: 12px;
+    height: 32px;
+  }
+  .card__photo {
+    display: none;
+  }
+  .card {
+    padding: 5px !important;
+  }
+  .card__city {
+    font-size: 42px !important;
+  }
+  .card__value {
+    font-size: 62px !important;
+  }
+  .card__information {
+    margin-left: 0px !important;
+  }
+  .information__item-element img {
+    width: 45px !important;
+  }
+  .future__item-element img {
+    width: 45px !important;
+  }
+  .form__btn {
+    padding: 8px;
+  }
 }
